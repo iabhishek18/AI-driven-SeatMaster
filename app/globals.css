@@ -1,0 +1,506 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Font Hierarchy */
+  h1 {
+    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+  h2 {
+    @apply font-heading text-2xl md:text-3xl font-bold;
+  }
+  h3 {
+    @apply font-heading text-xl md:text-2xl font-semibold;
+  }
+  h4 {
+    @apply font-heading text-lg md:text-xl font-semibold;
+  }
+  h5,
+  h6 {
+    @apply font-heading text-base md:text-lg font-semibold;
+  }
+
+  /* Special text elements */
+  .accent-text {
+    @apply font-decorative;
+  }
+
+  /* Consistent gradient text styles */
+  .title-gradient {
+    @apply text-gradient-blue;
+  }
+
+  .subtitle-gradient {
+    @apply text-gradient-primary;
+  }
+
+  .highlight-gradient {
+    @apply text-gradient-gold;
+  }
+
+  .celebration-gradient {
+    @apply text-gradient-rainbow;
+  }
+}
+
+/* Font Styles */
+.font-decorative {
+  font-family: var(--font-decorative);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Text Gradient Effects */
+.text-gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #c471f5 0%, #fa71cd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-rainbow {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff8000,
+    #ffff00,
+    #80ff00,
+    #00ff00,
+    #00ff80,
+    #00ffff,
+    #0080ff,
+    #0000ff,
+    #8000ff,
+    #ff00ff,
+    #ff0080
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: rainbow-animation 6s linear infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes rainbow-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* Text Shadow Effects */
+.text-shadow-sm {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-md {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.text-shadow-lg {
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.dark .text-shadow-glow {
+  text-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Fancy Text Underlines */
+.fancy-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.fancy-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.5));
+  border-radius: 3px;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.fancy-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* 3D Card Effects */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-3d-content {
+  transform-style: preserve-3d;
+}
+
+.card-3d-element {
+  transform: translateZ(20px);
+}
+
+/* Gradient Animations */
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8), hsl(var(--primary) / 0.6));
+  background-size: 200% 200%;
+  animation: gradientAnimation 8s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating Animation */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Glow Effect */
+.glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced Seat Animations */
+.seat-appear {
+  animation: seatAppear 0.5s ease-out forwards;
+  transform: scale(0) translateZ(0);
+  opacity: 0;
+}
+
+@keyframes seatAppear {
+  0% {
+    transform: scale(0) translateZ(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1) translateZ(20px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1) translateZ(10px);
+    opacity: 1;
+  }
+}
+
+.seat-selected {
+  animation: seatSelected 0.3s ease-in-out;
+}
+
+@keyframes seatSelected {
+  0% {
+    transform: scale(1) translateZ(10px);
+  }
+  50% {
+    transform: scale(1.2) translateZ(30px);
+  }
+  100% {
+    transform: scale(1) translateZ(10px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+/* 3D Button Effects */
+.button-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-3d::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background: hsl(var(--primary) / 0.8);
+  transform: translateZ(-6px);
+  border-radius: var(--radius);
+  filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.button-3d:hover {
+  transform: translateY(-3px) translateZ(10px);
+}
+
+.button-3d:hover::before {
+  opacity: 0.5;
+}
+
+.button-3d:active {
+  transform: translateY(0) translateZ(5px);
+}
+
+/* Perspective Container */
+.perspective-container {
+  perspective: 1000px;
+}
+
+/* Shimmer Effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 150%;
+  }
+}
+
+/* Letter Spacing for Headings */
+.letter-spacing-wide {
+  letter-spacing: 0.05em;
+}
+
+.letter-spacing-wider {
+  letter-spacing: 0.1em;
+}
+
+/* Text Stroke Effect */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
+  text-stroke: 1px rgba(0, 0, 0, 0.3);
+}
+
+.dark .text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced Gradient Animation */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Enhanced Gold Gradient */
+.enhanced-gold-gradient {
+  background: linear-gradient(to right, #f6d365 0%, #fda085 50%, #f6d365 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-animation 5s ease infinite;
+}
+
+/* Responsive Container for Tagline */
+.tagline-container {
+  width: 100%;
+  max-width: 800px; /* Reduced from full width */
+  margin: 0 auto 2rem auto; /* Center horizontally with bottom margin */
+  padding: 1rem 0.75rem; /* Reduced padding */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(30, 30, 30, 0.9), rgba(0, 0, 0, 0.9));
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  text-align: center; /* Center text */
+}
+
+@media (max-width: 640px) {
+  .tagline-container {
+    padding: 0.75rem 0.5rem; /* Further reduced padding for mobile */
+    max-width: 90%; /* Allow some margin on small screens */
+  }
+}
